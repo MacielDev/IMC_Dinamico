@@ -132,3 +132,13 @@ button[disabled=disabled], button:disabled {
 .campo-invalido{
 	border: 1px solid red;
 }
+/* Exibir linha com dados (peso ou Altura inválidos) */
+
+.imcInvalido{
+	background-color: #F37878;
+	color: #FFF;
+}
+.imcValido{
+	background-color: #D9F8C4;
+	color: #000;
+}
