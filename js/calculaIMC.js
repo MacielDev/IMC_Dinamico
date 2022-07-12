@@ -2,7 +2,6 @@ const pacientes = pegaPacientes();
 pacientes.forEach((paciente)=>{
 
     // ACESSANDO OS DADOS DE CADA PACIENTE
-    const nome = paciente.querySelector('.info-nome');
     const peso = pegaPeso(paciente);
     const altura = pegaAltura(paciente);
     const imcTabela = pegaIMC(paciente);
@@ -15,8 +14,6 @@ pacientes.forEach((paciente)=>{
 
     
 })	
-
-
 
 /*
 calculaIMC : FUNÇÕESÇÃO RESPONSÁVEL POR REALIZAR O CÁLCULO DO IMC DE CADA PACIENTE. RECEBE COMO PARÂMETROS DOIS VALORES DO TIPO NUMBER (PESO E ALTURA). SEU RETORNO É O IMC CALCULADO COM UMA APROXIMAÇÃO DE DUAS CASAS DECIMAIS.
@@ -36,8 +33,6 @@ const pesoValido = validaPeso(peso);
          return 'altura inválida!';
      }
  }
-
-
 
 
 
