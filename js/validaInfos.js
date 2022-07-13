@@ -25,8 +25,7 @@ function validaAltura(paciente) {
 
 
 function validaCadastroPaciente(formulario,paciente){
-
-    const spanErro  = document.querySelector('#dadosIncorretos');
+    const spanErro  = document.querySelector('#falhaCadastro');
     const pesoValido = validaPeso(paciente);
     const alturaValida = validaAltura(paciente);
 
@@ -40,7 +39,9 @@ function validaCadastroPaciente(formulario,paciente){
             return false;
         }
     }else{
-        naoExibeErros(formulario, spanErro)
+        spanErro.classList.add('naoMostraSpanErros');
+        formulario.peso.classList.remove('imcInvalido');
+        formulario.altura.classList.remove('imcInvalido')
         return true;
 
     }
@@ -50,7 +51,8 @@ function validaCadastroPaciente(formulario,paciente){
 
 function exibeErroPeso(formulario,paciente){
  
-    const spanErro  = document.querySelector('#dadosIncorretos');
+    const spanErro  = document.querySelector('#falhaCadastro');
+    
     formulario.peso.classList.add('imcInvalido');
 
     spanErro.classList.remove('naoMostraSpanErros');
@@ -59,7 +61,7 @@ function exibeErroPeso(formulario,paciente){
 }
 function exibeErroAltura(formulario,paciente){
  
-    const spanErro  = document.querySelector('#dadosIncorretos');
+    const spanErro  = document.querySelector('#falhaCadastro');
     formulario.altura.classList.add('imcInvalido');
     
     spanErro.classList.remove('naoMostraSpanErros');
@@ -67,7 +69,3 @@ function exibeErroAltura(formulario,paciente){
     spanErro.textContent = `A altura ${paciente.altura} metros informada é inválida. Informe um valor maior que zero e menor que três metros`;
 }
 
-function naoExibeErros(formulario, spanErro){
-    spanErro.classList.add('naoMostraSpanErros');
-        formulario.peso.classList.remove('imcInvalido');
-}

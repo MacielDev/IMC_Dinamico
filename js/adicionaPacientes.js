@@ -59,12 +59,21 @@ function adicionaPaciente(formulario,paciente){
     const cadastroPacienteValido = validaCadastroPaciente(formulario,paciente);
     const tabela = document.querySelector('#tabela-pacientes')
     const pacienteTR = montaTR(paciente);
+    const mensagemSucesso = document.querySelector('#adicionadoComSucesso')
 
     if(!cadastroPacienteValido){
         return;
     }
     tabela.appendChild(pacienteTR);
+    mensagemSucesso.classList.remove('inserindo');
+    mensagemSucesso.classList.add('inserindoComSucesso');
+    setTimeout(()=>{
+        mensagemSucesso.classList.remove('inserindoComSucesso');
+        mensagemSucesso.classList.add('inserindo');
+    },2000);
+    
     formulario.reset();
+
     
 }
  
