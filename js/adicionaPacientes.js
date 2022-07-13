@@ -3,6 +3,7 @@
  * INSERINDO NOVOS PACIENTES 
  */
 
+
  const botaoAcionar = document.querySelector('#adicionar-paciente');
  botaoAcionar.addEventListener('click', (event)=>{
  
@@ -17,23 +18,9 @@
     
      const paciente = obtemInformacoesFormulario(formulario);
      
-
- 
-     /** CRIANDO ELENTOS HTML ATRAVÉS DA FUNÇÃO 'CREATE ELEMENT */
-    
-    const pacienteTR = montaTR(paciente);
-      
-     
- 
-     const tabela = document.querySelector('#tabela-pacientes')
-     //  criando <tr>
-     tabela.appendChild(pacienteTR);
-
-     formulario.reset();
-
+     adicionaPaciente(formulario,paciente);
 
  });
-
 
  function obtemInformacoesFormulario(formulario){
     const paciente ={
@@ -47,7 +34,6 @@
 }
 
 function montaTR(paciente){
-    
     const pacienteTR = document.createElement('tr');
     pacienteTR.classList.add('paciente');
     pacienteTR.classList.add('imcValido');
@@ -67,5 +53,18 @@ function montaTD(dado,classe){
     td.classList.add(classe);
     
     return td;
+}
+
+function adicionaPaciente(formulario,paciente){
+    const cadastroPacienteValido = validaCadastroPaciente(formulario,paciente);
+    const tabela = document.querySelector('#tabela-pacientes')
+    const pacienteTR = montaTR(paciente);
+
+    if(!cadastroPacienteValido){
+        return;
+    }
+    tabela.appendChild(pacienteTR);
+    formulario.reset();
+    
 }
  

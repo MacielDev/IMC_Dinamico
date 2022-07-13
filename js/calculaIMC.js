@@ -13,7 +13,7 @@ pacientes.forEach((paciente)=>{
     exibeResultadoIMC(imcTabela,resultadoImc,paciente);
 
     
-})	
+});	
 
 /*
 calculaIMC : FUNÇÕESÇÃO RESPONSÁVEL POR REALIZAR O CÁLCULO DO IMC DE CADA PACIENTE. RECEBE COMO PARÂMETROS DOIS VALORES DO TIPO NUMBER (PESO E ALTURA). SEU RETORNO É O IMC CALCULADO COM UMA APROXIMAÇÃO DE DUAS CASAS DECIMAIS.

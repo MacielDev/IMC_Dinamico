@@ -43,6 +43,9 @@ section{
 	overflow: hidden;
 }
 
+.form-adicionar{
+	margin-top: 4px;
+}
 section h2{
 	font-size: 3em;
 	display: block;
@@ -141,4 +144,22 @@ button[disabled=disabled], button:disabled {
 .imcValido{
 	background-color: #D9F8C4;
 	color: #000;
+}
+
+/* mensaggens de validação */
+
+.mostraSpanErros{
+	display: block;
+	background-color: #F37878;
+	color: #fff;
+	padding: 10px 40px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	text-align: center;
+	min-width: 100%;
+}
+.naoMostraSpanErros{
+	display:none;
 }
