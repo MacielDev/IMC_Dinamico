@@ -18,11 +18,10 @@ function validaNome(paciente){
 }
 function validaGordura(paciente){
     if(paciente.gordura.length == 0 || paciente.gordura <= 0){
-        return 'Informe qual seu percentual de gordura';
+        return 'Informe um percentual de gordura válido';
     }
     return '';
 }
-
 function validaCadastroPaciente(paciente){
     const erros = [];
         if(!validaNome(paciente).length == 0){

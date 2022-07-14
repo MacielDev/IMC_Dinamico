@@ -1,7 +1,8 @@
 function exibeMensagensErros(erros){
     const ul  = document.querySelector('#falhaCadastro');
     ul.innerHTML = '';
-    ul.classList.remove('naoMostraSpanErros'); 
+    ul.classList.remove('naoMostraSpanErros');
+
     erros.forEach((erro)=>{
         const li = document.createElement('ĺi');
         li.classList.remove('naoMostraSpanErros');
@@ -10,9 +11,13 @@ function exibeMensagensErros(erros){
         ul.appendChild(li);
     });
 }
-
 function exibeMensagemSucesso(removeClasse,adicionaClasse){
     const mensagemSucesso = document.querySelector('#adicionadoComSucesso');
+
     mensagemSucesso.classList.remove(removeClasse);
     mensagemSucesso.classList.add(adicionaClasse);
+
+    setTimeout(()=>{
+        mensagemSucesso.classList.add('fadeOutSucesso');
+    },1000);
 }

@@ -137,6 +137,8 @@ button[disabled=disabled], button:disabled {
 .campo-invalido{
 	border: 1px solid red;
 }
+
+
 /* Exibir linha com dados (peso ou Altura inválidos) */
 
 .imcInvalido{
@@ -147,6 +149,7 @@ button[disabled=disabled], button:disabled {
 	background-color: #D9F8C4;
 	color: #000;
 }
+
 
 /* mensaggens de validação */
 
@@ -164,15 +167,21 @@ button[disabled=disabled], button:disabled {
 	min-width: 100%;
 }
 .naoMostraSpanErros{
+	opacity: 0%;
+	transition: 1s;
 	display:none;
 }
 .inserindo{
+
 	display:none;
 	transition: 1s ease-out;
 }
 .inserindoComSucesso{
-	
 	display: block;
+
+	opacity: 100%;
+	transition: 1s;
+
 	background-color: #D9F8C4;
 	color:#000;
 	width: 100%;
@@ -180,5 +189,22 @@ button[disabled=disabled], button:disabled {
 	padding:10px;
 	margin-bottom: 30px;
 	text-align: center;
-	transition: 1s ease-in-out;
+	
+}
+
+/* Efeito de esmaecer */
+
+.fadeOut{
+	opacity: 0%;
+	transition: .8s;
+}
+
+.fadeOutSucesso{
+	opacity: 0%;
+	transition: 1s;
+}
+
+.fadeIn{
+	opacity: 100%;
+	transition: .5s;
 }
