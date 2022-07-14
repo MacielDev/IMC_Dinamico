@@ -12,3 +12,4 @@ function alteraCorResultadoIMC (imc,paciente) {
         paciente.classList.add('imcInvalido');
     }
 }
+

@@ -1,9 +1,3 @@
-/*
-FUNÇÕES RESPONSÁVEIS POR ACESSAR OS DADOS (NOME, PESO, ALTURA E IMC) 
-DE CADA PACIENTE.
-IMPORTANTE: AS FUNÇÕES pegaPeso e pegaAltura JÁ REALIZAM O CASTING DE STRING PARA NUMBER.
-*/ 
-
 function pegaPacientes (){
     return document.querySelectorAll('.paciente')
 }
@@ -28,4 +22,14 @@ function pegaAltura(paciente){
 function pegaIMC(paciente){
     imc = paciente.querySelector('.info-imc');
     return imc;
+}
+function obtemInformacoesFormulario(formulario){
+    const paciente ={
+        nome: formulario.nome.value,
+        peso: Number(formulario.peso.value),
+        altura: Number(formulario.altura.value),
+        gordura: formulario.gordura.value,
+        imc: calculaIMC(formulario.peso.value,formulario.altura.value)
+    }
+    return paciente;
 }

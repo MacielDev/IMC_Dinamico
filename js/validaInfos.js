@@ -1,71 +1,43 @@
-/*
-validaPeso : FUNÇÃO RESPONSÁVEL POR VALIDAR O PESO DE CADA PACIENTE. RECEBE COMO PARÂMETRO UM VALOR DO TIPO NUMBER (PESO). SEU RETORNO É UM VALOR BOOLEANO.
-
-validaAltura: FUNÇÃO RESPONSÁVEL POR VALIDAR A ALTURA DE CADA PACIENTE. RECEBE COMO PARÂMETRO UM VALOR DO TIPO NUMBER (ALTURA). SEU RETORNO É UM VALOR BOOLEANO.
-
-validaCadastroPaciente: FUÇÃO RESPONSÁVEL POR VALIDAR O CADASTRO DE NOVOS PACIENTES MEDIANTE A VALIDAÇÃO DA ALTURA E O PESO INFORMADO. RECEBE COMO PARÂMETROS UM
- PACIENTE E O FORMULÁRIO CONTENDO AS INFORMAÇÕES DO PACIENTE.
- 
-*/
-
-
 function validaPeso(paciente){
-    if(paciente.peso <=0 || paciente.peso>=300){
-        return false
+    if(paciente.peso <= 0 || paciente.peso >= 300 || paciente.peso.length == 0){
+        return `O peso ${paciente.peso} KG informado é inválido. Informe um valor maior que zero e menor que trezentos Kg`;
     }
-    return true;
+    return '';
 }
-
 function validaAltura(paciente) {
-    if(paciente.altura <=0 || paciente.altura >=3.00){
-        return false;
+    if(paciente.altura <= 0 || paciente.altura >= 3.00 || paciente.altura.length == 0){
+        return `A altura ${paciente.altura} metros informada é inválida. Informe um valor maior que zero e menor que três metros`;
     }
-    return true
+    return '';
+}
+function validaNome(paciente){
+    if(paciente.nome.length == 0){
+        return 'O nome do paciente está em branco. Informe um nome válido.'
+    }
+    return '';
+}
+function validaGordura(paciente){
+    if(paciente.gordura.length == 0 || paciente.gordura <= 0){
+        return 'Informe qual seu percentual de gordura';
+    }
+    return '';
 }
 
-
-function validaCadastroPaciente(formulario,paciente){
-    const spanErro  = document.querySelector('#falhaCadastro');
-    const pesoValido = validaPeso(paciente);
-    const alturaValida = validaAltura(paciente);
-
-    if(!pesoValido || !alturaValida ){
-        if(!pesoValido){
-            exibeErroPeso(formulario,paciente);
-            return false;
-            
-        }else{
-            exibeErroAltura(formulario,paciente);
-            return false;
+function validaCadastroPaciente(paciente){
+    const erros = [];
+        if(!validaNome(paciente).length == 0){
+            erros.push(validaNome(paciente));
         }
-    }else{
-        spanErro.classList.add('naoMostraSpanErros');
-        formulario.peso.classList.remove('imcInvalido');
-        formulario.altura.classList.remove('imcInvalido')
-        return true;
-
-    }
+        if(!validaPeso(paciente).length == 0){
+            erros.push(validaPeso(paciente));  
+        }
+        if(!validaAltura(paciente).length == 0){
+            erros.push(validaAltura(paciente));
+        }
+        if(!validaGordura(paciente).length == 0){
+            erros.push(validaGordura(paciente));
+        }
+    return erros;
 }
 
-/**FUNÇÕES RESPONSÁVEIS PELA INTERAÇÃO COM OS USUÁRIOS E EXIBIR/OCULTAR OS ERROS */
-
-function exibeErroPeso(formulario,paciente){
- 
-    const spanErro  = document.querySelector('#falhaCadastro');
-    
-    formulario.peso.classList.add('imcInvalido');
-
-    spanErro.classList.remove('naoMostraSpanErros');
-    spanErro.classList.add('mostraSpanErros');
-    spanErro.textContent = `O peso ${paciente.peso} KG informado é inválido. Informe um valor maior que zero e menor que trezentos Kg`;
-}
-function exibeErroAltura(formulario,paciente){
- 
-    const spanErro  = document.querySelector('#falhaCadastro');
-    formulario.altura.classList.add('imcInvalido');
-    
-    spanErro.classList.remove('naoMostraSpanErros');
-    spanErro.classList.add('mostraSpanErros');
-    spanErro.textContent = `A altura ${paciente.altura} metros informada é inválida. Informe um valor maior que zero e menor que três metros`;
-}
 
