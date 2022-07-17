@@ -1,3 +1,4 @@
+/*MINHA PROPOSTA DE CÓDIGO - UTILIZANDO FETCH*/ 
 const botaoCarregarPacientes  = document.querySelector('#carregar-pacientes');
 botaoCarregarPacientes.addEventListener('click', (event)=>{
     event.preventDefault();
@@ -5,6 +6,7 @@ botaoCarregarPacientes.addEventListener('click', (event)=>{
     const formulario = document.querySelector('#form-adiciona')
     fetch('http://api-pacientes.herokuapp.com/pacientes')
     .then((response)=> {
+        
         response.json()
         .then((data)=>{
             data.forEach(paciente => {
@@ -12,9 +14,9 @@ botaoCarregarPacientes.addEventListener('click', (event)=>{
             });
         });
     })
-    .catch((err)=>{
+    .catch((response)=>{
         console.error(err);
-    })  
+    });  
 });
 
 
