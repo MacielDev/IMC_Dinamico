@@ -20,6 +20,4 @@ campoDeBusca.addEventListener('input',(event)=>{
             paciente.classList.remove('escondePaciente');
         });
     }
-       
-   
 });
