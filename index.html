@@ -17,6 +17,8 @@
 			<section class="container">
 				<h2>Meus pacientes</h2>
 				<span id="adicionadoComSucesso" class="inserindo">Paciente inserido com sucesso!!!</span>
+				<label for="filtrar-tabela">Buscar paciente</label>
+				<input type="text" name="filtro" id="filtrar-tabela" class="campoDeBusca">
 				<table class="tabelapacientes">
 					<thead>
 						<tr>
@@ -28,7 +30,7 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
-						<!-- Pacientes inseridos pelo usuário dinâmicamente -->
+					<!-- PACIENTES -->
 					</tbody>
 				</table>
 
@@ -54,8 +56,10 @@
             <label for="gordura">% de Gordura:</label>
             <input id="gordura" name="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
         </div>
-
-        <button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+		<div class="container-botoes">
+			<button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+			<button id="carregar-pacientes" class="botao bto-principal carregar">Carregar</button>
+		</div>
     </form>
 </section>
 		</main>
@@ -68,5 +72,7 @@
 		<script src="./js/montaRegistro.js"></script>
 		<script src="./js/principal.js"></script>
 		<script src="./js/excluirPacientes.js"></script>
+		<script src="./js/filtra.js"></script>
+		<script src="./js/carregarPacientes.js"></script>
 	</body>
 </html>

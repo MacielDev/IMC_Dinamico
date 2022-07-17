@@ -60,9 +60,7 @@ table{
     table-layout: fixed;
 
 }
-.tabelapacientes{
-	margin-top: 1.5rem;
-}
+
 td, th {
 	padding: .7em;
 	margin: 0;
@@ -207,4 +205,25 @@ button[disabled=disabled], button:disabled {
 .fadeIn{
 	opacity: 100%;
 	transition: .5s;
+}
+
+/*  CAMPO DE BUSCA */
+
+.campoDeBusca{
+	width: 230px;
+	height: 30px;
+	border-radius: 4px;
+	margin-bottom: 5px;
+}
+
+.escondePaciente{
+	display: none;
+}
+
+.container-botoes{
+	display:flex;
+	justify-content: flex-start;
+}
+.carregar{
+	margin-left: 4px;
 }
